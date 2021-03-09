@@ -1,16 +1,16 @@
 window.onload = function () {
   // Сохраняем адрес API
-  var api = "https://swapi.dev/api/";
+  const api = "https://swapi.dev/api/";
 
   // Формируем полный адрес запроса:
-  var url = api + "people/?search="; // добавляем к запросу тип необходимых данных подробно о формате https://swapi.dev/documentation
+  let url = api + "people/?search="; // добавляем к запросу тип необходимых данных подробно о формате https://swapi.dev/documentation
   url += "obi"; // значение переменной запроса search
 
   // Таким образом формируется строка вида:
   // https://swapi.dev/api/people/?search=obi
 
   // Создаем объект XMLHttpRequest, при помощи которого будем отправлять запрос
-  var request = new XMLHttpRequest();
+  const request = new XMLHttpRequest();
 
   // Назначаем обработчик события load для запроса
   request.addEventListener("load", function () {
@@ -18,7 +18,7 @@ window.onload = function () {
     console.log(request.response);
 
     // парсим его из JSON-строки в JavaScript-объект
-    var response = JSON.parse(request.response);
+    const response = JSON.parse(request.response);
 
     // Проверяем статус-код, который прислал сервер
     // 200 — это ОК, остальные — ошибка или не подходят

@@ -7,7 +7,8 @@ body {
 }
 
 body,
-input[text] {
+input[text],
+.search_type {
   font-family: 'Ubuntu', serif;
   font-size: 20px;
   background: #000;
