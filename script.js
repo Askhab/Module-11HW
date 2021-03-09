@@ -1,3 +1,5 @@
+"use strict";
+
 window.onload = function () {
   // Сохраняем адрес API
   const api = "https://swapi.dev/api/";
@@ -23,10 +25,7 @@ window.onload = function () {
     // Проверяем статус-код, который прислал сервер
     // 200 — это ОК, остальные — ошибка или не подходят
     if (request.status !== 200) {
-      alert(
-        "Произошла ошибка при получении ответа от сервера:\n\n" +
-        response.message
-      );
+      alert("Произошла ошибка при получении ответа от сервера:\n\n" + response.message);
       return;
     }
 
