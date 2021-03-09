@@ -29,6 +29,10 @@ input[text],
   width: 30%;
 }
 
+.search_type {
+  padding: 5px;
+}
+
 .search .search_result li {
   list-style-type: none;
   padding: 7px;
