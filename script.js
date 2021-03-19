@@ -45,3 +45,24 @@ window.onload = function () {
   request.open("get", url);
   request.send();
 };
+
+// document.querySelector('select[name="select_type"]');
+
+
+// // Запрашиваем user.json
+// fetch('/article/promise-chaining/user.json')
+//   // Загружаем данные в формате json
+//   .then(response => response.json())
+//   // Делаем запрос к GitHub
+//   .then(user => fetch(`https://api.github.com/users/${user.name}`))
+//   // Загружаем ответ в формате json
+//   .then(response => response.json())
+//   // Показываем аватар (githubUser.avatar_url) в течение 3 секунд (возможно, с анимацией)
+//   .then(githubUser => {
+//     let img = document.createElement('img');
+//     img.src = githubUser.avatar_url;
+//     img.className = "promise-avatar-example";
+//     document.body.append(img);
+
+//     setTimeout(() => img.remove(), 3000); // (*)
+//   });
