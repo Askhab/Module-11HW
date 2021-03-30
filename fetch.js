@@ -1,6 +1,6 @@
 "use strict";
 
-window.onload = function() {
+document.onload = function() {
     const api = "https://swapi.dev/api",
           searchButton = document.querySelector('#search_request_btn');
 
@@ -13,6 +13,9 @@ window.onload = function() {
         birthYearOutput = document.querySelector('#birth_year'),
         filmsCountOutput = document.querySelector('#films_count'),
         xhrRequest = new XMLHttpRequest();
+
+    
+    searchButton.addEventListener('click', );
 
     
     xhrRequest.open('GET', api, true);
