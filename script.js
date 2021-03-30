@@ -1,24 +1,26 @@
 "use strict";
 
-window.onload = async function() {
+window.onload = function() {
     const api = "https://swapi.dev/api",
           searchButton = document.querySelector('#search_request_btn');
 
-    let objectType = document.querySelector('option[selected]'),
+    let object = document.querySelector('.person_search'),
+        objectType = document.querySelector('option[selected]'),
+        findedObjects = document.querySelector('.search_result'),
         nameOutput = document.querySelector('#name'),
         heightOutput = document.querySelector('#height'),
         massOutput = document.querySelector('#mass'),
         birthYearOutput = document.querySelector('#birth_year'),
-        filmsCountOutput = document.querySelector('#films_count');
+        filmsCountOutput = document.querySelector('#films_count'),
+        xhrRequest = new XMLHttpRequest();
 
-    // let response = await fetch(api, {
-    //     method: 'GET',
-    // });
-       
-    // let result = await response.json();
+    
+    xhrRequest.open('GET', api, true);
+    xhrRequest.responseType = 'json';
+    xhrRequest.onload = () => {
+        console.log(xhrRequest.response);
+    };
+    xhrRequest.send();
 
-    fetch(api)
-      .then(response => response.json())
-      .then(response => console.log(response));
 
 };
