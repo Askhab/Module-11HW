@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>CodePen - SWAPI JS M11</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <!-- partial -->
     <script src="xhr.js" defer></script>
     <!-- <script src="fetch.js" defer></script> -->
@@ -13,24 +12,22 @@
   <body>
     <!-- partial:index.partial.html -->
     <div class="content">
-
       <div class="search">
         <div class="search_form">
-          <label>Поиск персонажа:
-            <input type="text" class="person_search" id="person_search_input">
-
-            <select class="search_type">
-              <option value="people">Персонажи</option>
-              <option value="starships">Корабли</option>
-              <option value="planets">Планеты</option>
-              <option value="films">Фильмы</option>
-              <option value="vehicles">Транспорт</option>
-            </select>
+          <label
+            >Поиск персонажа:
+            <input type="text" class="person_search" />
           </label>
+          <select class="search_type">
+            <option value="people">Персонажи</option>
+            <option value="starships">Корабли</option>
+            <option value="planets">Планеты</option>
+            <option value="films">Фильмы</option>
+            <option value="vehicles">Транспорт</option>
+          </select>
           <button id="search_request_btn" class="button">Найти</button>
         </div>
-        <ul class="search_result">
-        </ul>
+        <ul class="search_result"></ul>
       </div>
 
       <div class="person_data">
