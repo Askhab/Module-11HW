@@ -13,37 +13,33 @@ let object = document.querySelector(".person_search"),
     filmsCountOutput = document.querySelector("#films_count");
 
 searchButton.addEventListener("click", requestData);
+findedObjects.addEventListener("click", showObjectData);
 
 function requestData() {
-  const xhr = new XMLHttpRequest();
-  let url = api + objectType.value;
-
-  if(objectType.value === 'people') {
-    url += '/82/';
-  } else if(objectType.value === 'starships') {
-    url += '/36/';
-  } else if(objectType.value === 'planets') {
-    url += '/60/';
-  } else if(objectType.value === 'films') {
-    url += '/6/';
-  } else if(objectType.value === 'vehicles') {
-    url += '/39/';
+  if(findedObjects.hasChildNodes("li")) {
+    findedObjects.remove("li");
   }
+
+  const xhr = new XMLHttpRequest();
+  let url = api + objectType.value + "/?search=" + object.value;
 
   xhr.open("GET", url);
   xhr.responseType = "json";
-  xhr.send();
   xhr.onload = () => {
-    let object = xhr.response.results,
-        listItem = document.createElement('li');
+    let object = xhr.response.results;
     console.log(object);
     console.log(object.length);
 
-    for(let i of object) {
-      if(object.length) {
-        listItem.textContent = i.name;
-        findedObjects.append(listItem);
-      }
+    for (let item of object){
+      let listItem = document.createElement('li');
+      listItem.textContent = item.name;
+      findedObjects.append(listItem);
     }
   };
+}
+
+function showObjectData(event) {
+  let item = event.target.closest('li');
+
+
 }
