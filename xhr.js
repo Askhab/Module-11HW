@@ -15,6 +15,9 @@ let object = document.querySelector(".person_search"),
 searchButton.addEventListener("click", requestData);
 findedObjects.addEventListener("click", showObjectData);
 
+// Разделить действия типа получения URL, отправку запроса и представление
+// информации на отдельные функции - для повторного использования.
+
 function requestData() {
   if(findedObjects.hasChildNodes("li")) {
     findedObjects.remove("li");
@@ -37,6 +40,8 @@ function requestData() {
     }
   };
 }
+
+
 
 function showObjectData(event) {
   let item = event.target.closest('li');
