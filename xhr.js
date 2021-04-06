@@ -15,9 +15,6 @@ let object = document.querySelector(".person_search"),
 searchButton.addEventListener("click", requestData);
 findedObjects.addEventListener("click", showObjectData);
 
-// Разделить действия типа получения URL, отправку запроса и представление
-// информации на отдельные функции - для повторного использования.
-
 function requestData() {
   if (findedObjects.hasChildNodes("li")) {
         findedObjects.innerHTML = "";
@@ -36,8 +33,23 @@ function requestData() {
 
     for (let item of answer) {
       let listItem = document.createElement('li');
-      listItem.textContent = item.name;
-      findedObjects.append(listItem);
+
+      switch (objectType.value) {
+        case "films":
+          listItem.textContent = item.title;
+          findedObjects.append(listItem);
+          break;
+        case "starships":
+        case "vehicles":
+          listItem.textContent = item.name + " - " + item.model;
+          findedObjects.append(listItem);
+          break;
+        case "people":
+        case "planets":
+          listItem.textContent = item.name;
+          findedObjects.append(listItem);
+          break;
+      }    
     }
   };
 }
