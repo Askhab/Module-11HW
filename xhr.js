@@ -19,29 +19,28 @@ findedObjects.addEventListener("click", showObjectData);
 // информации на отдельные функции - для повторного использования.
 
 function requestData() {
-  if(findedObjects.hasChildNodes("li")) {
-    findedObjects.remove("li");
-  }
-
+  if (findedObjects.hasChildNodes("li")) {
+        findedObjects.innerHTML = "";
+      }
+  
   const xhr = new XMLHttpRequest();
   let url = api + objectType.value + "/?search=" + object.value;
-
+  console.info(`url - ${url}`);
   xhr.open("GET", url);
   xhr.responseType = "json";
+  xhr.send();
   xhr.onload = () => {
-    let object = xhr.response.results;
-    console.log(object);
-    console.log(object.length);
+    let answer = xhr.response.results;
+    console.log(answer);
+    console.log(answer.length);
 
-    for (let item of object){
+    for (let item of answer) {
       let listItem = document.createElement('li');
       listItem.textContent = item.name;
       findedObjects.append(listItem);
     }
   };
 }
-
-
 
 function showObjectData(event) {
   let item = event.target.closest('li');
