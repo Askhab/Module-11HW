@@ -4,6 +4,7 @@ const api = "https://swapi.dev/api/",
       searchButton = document.querySelector("#search_request_btn");
 
 let object = document.querySelector(".person_search"),
+    answer = [],
     objectType = document.querySelector(".search_type"),
     findedObjects = document.querySelector(".search_result"),
     nameOutput = document.querySelector("#name"),
@@ -27,7 +28,7 @@ function requestData() {
   xhr.responseType = "json";
   xhr.send();
   xhr.onload = () => {
-    let answer = xhr.response.results;
+    answer = xhr.response.results;
     console.log(answer);
     console.log(answer.length);
 
@@ -55,7 +56,16 @@ function requestData() {
 }
 
 function showObjectData(event) {
-  let item = event.target.closest('li');
-
-
+  let item = event.target.closest('li'),
+      itemText = item.textContent;
+  
+  for(let index of answer) {
+    if(index.name === itemText) {
+      nameOutput.textContent = index.name;
+      heightOutput.textContent = index.height;
+      massOutput.textContent = index.mass;
+      birthYearOutput.textContent = index.birth_year;
+      filmsCountOutput.textContent = index.films.length;
+    }
+  }
 }

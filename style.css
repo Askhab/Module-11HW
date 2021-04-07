@@ -55,6 +55,10 @@ input[text],
   padding: 5px 0px;
 }
 
+span {
+  color: #fff;
+}
+
 .button {
   background-color: #000;
   color: #FFE81F;
