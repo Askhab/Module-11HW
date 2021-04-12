@@ -16,7 +16,9 @@ let object = document.querySelector(".person_search"),
 searchButton.addEventListener("click", requestData);
 findedObjects.addEventListener("click", showObjectData);
 
-function requestData() {
+function requestData(event) {
+  event.preventDefault();
+  
   if (findedObjects.hasChildNodes("li")) {
         findedObjects.innerHTML = "";
       }
